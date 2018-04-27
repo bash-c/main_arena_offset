@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+black='\033[0;30m'
+dark_gray='\033[1;30m'
+light_gray='\033[0;37m'
+blue='\033[0;34m'
+light_blue='\033[1;34m'
+green='\033[0;32m'
+light_green='\033[1;32m'
+cyan='\033[0;36m'
+light_cyan='\033[1;36m'
+red='\033[0;31m'
+light_red='\033[1;31m'
+purple='\033[0;35m'
+light_purple='\033[1;35m'
+brown='\033[0;33m'
+yellow='\033[1;33m'
+white='\033[1;37m'
+default_color='\033[00m'
+red_bold='\033[01;31m'
+endc='\033[0m'
+
+offset=$(objdump -d $1 -M intel | grep __malloc_hook@@ | head -n 1| cut -d'#' -f2| grep -oP '[0-9a-f]{3,}')
+# version=$(objdump -d $1 -M intel | grep __malloc_hook@@ | head -n 1| awk '{print $13}'| grep -P '\d.\d.\d' -o)
+echo -e $cray'[+] '$endc$light_cray'main_arena_offset: '$endc$red_bold'0x'$offset$endc
+# echo -e '[+]glibc versoin: '$yellow$version$endc
