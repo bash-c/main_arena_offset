@@ -19,7 +19,7 @@ $ main_arena ./libc6_2.15-0ubuntu10_amd64.so
 
 ### Screenshots
 
-![screenshot](/home/m4x/main_arena_offset/screenshot.png)
+![screenshot](screenshot.png)
 
 ### more
 
