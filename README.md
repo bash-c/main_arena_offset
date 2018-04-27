@@ -25,6 +25,5 @@ $ main_arena ./libc6_2.15-0ubuntu10_amd64.so
 
 - You can set the color of output by modifying **main_arena_offset** as you want. I have preset some colors in **main_arena_offset**
 
-- version 0.1 must contains many many bugs and issues are welcomed.
+- I have tested libc from [libc-database](https://github.com/niklasb/libc-database), but only 60% works. Version 0.1 must contains many many bugs and issues are welcomed.
 
-  ​
