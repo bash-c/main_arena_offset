@@ -4,7 +4,7 @@
 
 ### install 
 ```bash
-wget https://github.com/M4xW4n9/main_arena_offset/blob/master/install.sh
+wget https://raw.githubusercontent.com/M4xW4n9/main_arena_offset/master/install.sh
 chmod +x install.sh
 sudo ./install.sh
 ```
