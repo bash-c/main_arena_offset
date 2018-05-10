@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# set -eux
 
 black='\033[0;30m'
 dark_gray='\033[1;30m'
@@ -20,7 +21,52 @@ default_color='\033[00m'
 red_bold='\033[01;31m'
 endc='\033[0m'
 
-offset=$(objdump -d $1 -M intel | grep __malloc_hook@@ | head -n 1| cut -d'#' -f2| grep -oP '[0-9a-f]{3,}')
-# version=$(objdump -d $1 -M intel | grep __malloc_hook@@ | head -n 1| awk '{print $13}'| grep -P '\d.\d.\d' -o)
-echo -e $cray'[+] '$endc$light_cray'main_arena_offset: '$endc$red_bold'0x'$offset$endc
-# echo -e '[+]glibc versoin: '$yellow$version$endc
+printInfo(){
+	printf "$light_green[+]__malloc_hook_offset :$endc$red_bold 0x%x$endc\n" $1
+	printf "$light_green[+]main_arena_offset :$endc$red_bold 0x%x$endc\n" $2
+	exit
+}
+info=$(file $1)
+is32=1
+is64_0x10=1
+if [[ "$info" =~ "32-bit" ]]
+then
+	is32=1
+fi
+
+if [[ "$info" =~ "64-bit" ]] && [[ "$info" =~ "GNU/Linux" ]]
+then
+	is32=0
+	is640_x10=1
+fi
+
+if [[ "$info" =~ "64-bit" ]] && [[ "$info" =~ "SYSV" ]]
+then
+	is32=0
+	is640_x10=0
+fi
+
+mallocHook=$(objdump -j .data -d $1|grep malloc_hook |cut -d " " -f 1)
+# echo $mallocHook
+let mallocHook=16#$mallocHook
+# printf "$light_green[+]__malloc_hook_offset :$endc$red_bold 0x%x$endc\n" $mallocHook
+
+if [ $is32 -eq 1 ]
+then
+	let mainArena=($mallocHook+0x18)
+	printInfo $mallocHook $mainArena
+fi
+
+if [ $is64_0x10 -eq 1 ] && [ $is32 -eq 0 ]
+then
+	let mainArena=($mallocHook+0x10)
+	printInfo $mallocHook $mainArena
+fi
+
+if [ $is64_0x10 -eq 0 ] && [ $is32 -eq 0 ]
+then
+	let mainArena=($mallocHook+0x20)
+	printInfo $mallocHook $mainArena
+fi
+# printf "$light_green[+]main_arena_offset :$endc$red_bold 0x%x$endc\n" $mainArena
+
