@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # set -eux
 
+# colors
 black='\033[0;30m'
 dark_gray='\033[1;30m'
 light_gray='\033[0;37m'
@@ -20,12 +21,15 @@ white='\033[1;37m'
 default_color='\033[00m'
 red_bold='\033[01;31m'
 endc='\033[0m'
+# colors
 
+# print information
 printInfo(){
 	printf "$light_green[+]__malloc_hook_offset :$endc$red_bold 0x%x$endc\n" $1
 	printf "$light_green[+]main_arena_offset :$endc$red_bold 0x%x$endc\n" $2
 	exit
 }
+
 info=$(file $1)
 is32=1
 is64_0x10=1
