@@ -2,11 +2,10 @@
 
 > A simple shell script to get main_arena offset of a given libc
 
-### install 
+<h3  id="1">install</h3>
+
 ```bash
-wget https://raw.githubusercontent.com/M4xW4n9/main_arena_offset/master/install.sh
-chmod +x install.sh
-sudo ./install.sh
+wget -q -O- https://raw.githubusercontent.com/M4xW4n9/main_arena_offset/master/install.sh| sh
 ```
 
 ### example
@@ -130,6 +129,7 @@ libc6-i386_2.27-3ubuntu1_amd64.so
 
 - v0.1 -- I have tested libcs from [libc-database](https://github.com/niklasb/libc-database), but only 60% works. Version 0.1 must contains many many bugs and issues are welcomed.
 - v0.2 -- I changed the method. Now it works on the equation **main_arena+0x10/0x18/0x20 == \__malloc\_hook**. It make a result for every libc from [libc-database](https://github.com/niklasb/libc-database). However, I haven't checked the result one by one, so a few results may be wrong and issues are welcomed, too.
+- v0.3 -- The setup procedure has been simplified a lot and now you can install main\_arena\_offset using a simple  <a href="#1" target="_self">command</>.
 
 ### more
 
