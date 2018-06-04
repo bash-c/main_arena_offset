@@ -8,9 +8,14 @@
 wget -q -O- https://raw.githubusercontent.com/M4xW4n9/main_arena_offset/master/install.sh| sh
 ```
 
+### usage
+```bash
+$main_arena your_libc
+```
+
 ### example
 ```bash
-db [master] for i in $(ls *.so);do echo $i; ~/main_arena_offset/main_arena_offset $i;done
+db [master] for i in $(ls *.so);do echo $i; main_arena $i;done
 libc6_2.15-0ubuntu10.18_amd64.so
 [+]__malloc_hook_offset : 0x3ba700
 [+]main_arena_offset : 0x3ba710
