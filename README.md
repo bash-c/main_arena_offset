@@ -135,6 +135,7 @@ libc6-i386_2.27-3ubuntu1_amd64.so
 - v0.1 -- I have tested libcs from [libc-database](https://github.com/niklasb/libc-database), but only 60% works. Version 0.1 must contains many many bugs and issues are welcome.
 - v0.2 -- I changed the method. Now it works on the equation **main_arena+0x10/0x18/0x20 == \__malloc\_hook**. It make a result for every libc from [libc-database](https://github.com/niklasb/libc-database). However, I haven't checked the result one by one, so a few results may be wrong and issues are welcome, too.
 - v0.3 -- The setup procedure has been simplified a lot and now you can install main\_arena\_offset using a simple  <a href="#1" target="_self">command</a>.
+- v0.4 -- It's able to print libc-version-information now.
 
 ### more
 
@@ -146,4 +147,5 @@ libc6-i386_2.27-3ubuntu1_amd64.so
 - [ ] print helpful information(**main_arena -h**)
 - [ ] check update(**main_arena -u**)
 - [ ] set color easily(**main_arena -c**)
+- [ ] more package manager system support(yum, pacman etc)
 - [ ] test more libcs

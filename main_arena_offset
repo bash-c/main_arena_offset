@@ -25,7 +25,8 @@ endc='\033[0m'
 
 # print information
 printInfo(){
-	printf "$light_green[+]__malloc_hook_offset :$endc$red_bold 0x%x$endc\n" $1
+	# printf "$light_green[+]__malloc_hook_offset :$endc$red_bold 0x%x$endc\n" $1
+	printf "$light_green[+]libc_version :$endc$red_bold %s$endc\n" "$1"
 	printf "$light_green[+]main_arena_offset :$endc$red_bold 0x%x$endc\n" $2
 	exit
 }
@@ -50,6 +51,9 @@ then
 	is640_x10=0
 fi
 
+chmod +x $1
+version=$(./$1| head -n1| grep -oP "\(.*\)")
+# echo $version
 mallocHook=$(objdump -j .data -d $1|grep malloc_hook |cut -d " " -f 1)
 # echo $mallocHook
 let mallocHook=16#$mallocHook
@@ -58,19 +62,19 @@ let mallocHook=16#$mallocHook
 if [ $is32 -eq 1 ]
 then
 	let mainArena=($mallocHook+0x18)
-	printInfo $mallocHook $mainArena
+	printInfo "$version" $mainArena
 fi
 
 if [ $is64_0x10 -eq 1 ] && [ $is32 -eq 0 ]
 then
 	let mainArena=($mallocHook+0x10)
-	printInfo $mallocHook $mainArena
+	printInfo "$version" $mainArena
 fi
 
 if [ $is64_0x10 -eq 0 ] && [ $is32 -eq 0 ]
 then
 	let mainArena=($mallocHook+0x20)
-	printInfo $mallocHook $mainArena
+	printInfo "$version" $mainArena
 fi
 # printf "$light_green[+]main_arena_offset :$endc$red_bold 0x%x$endc\n" $mainArena
 
