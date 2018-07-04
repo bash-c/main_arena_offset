@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# set -eux
+
+# colors
+black='\033[0;30m'
+dark_gray='\033[1;30m'
+light_gray='\033[0;37m'
+blue='\033[0;34m'
+light_blue='\033[1;34m'
+green='\033[0;32m'
+light_green='\033[1;32m'
+cyan='\033[0;36m'
+light_cyan='\033[1;36m'
+red='\033[0;31m' light_red='\033[1;31m'
+purple='\033[0;35m'
+light_purple='\033[1;35m'
+brown='\033[0;33m'
+yellow='\033[1;33m'
+white='\033[1;37m'
+default_color='\033[00m'
+red_bold='\033[01;31m'
+endc='\033[0m'
+# colors
+
+# print information
+printInfo(){
+	printf "$light_green[+]__malloc_hook_offset :$endc$red_bold 0x%x$endc\n" $1
+	printf "$light_green[+]main_arena_offset :$endc$red_bold 0x%x$endc\n" $2
+	exit
+}
+
+mallocHook=$(objdump -j .data -d $1|grep __malloc_hook@ |cut -d " " -f 1)
+let mallocHook=16#$mallocHook
+# 32-bit
+if [[ $(file $1) =~ "32-bit" ]]
+then
+	let mainArena=($mallocHook+0x18)
+	printInfo "$mallocHook" $mainArena
+fi
+
+# 64-bit
+reallocHook=$(objdump -j .data -d $1|grep __realloc_hook@ |cut -d " " -f 1)
+let reallocHook=16#$reallocHook
+((offset=$mallocHook-$reallocHook))
+
+let mainArena=($mallocHook+$offset*2)
+printInfo "$mallocHook" $mainArena
