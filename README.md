@@ -160,6 +160,8 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 #### Beta
 - v0.5 -- Many changes. I modified the shell-script a lot and it work's better. Most importantly, I have tested all the libcs from [libc-databases](https://github.com/niklasb/libc-database) and all of them made it! So I decided to release Beta-v0.5.
 
+- v0.6 -- fix a small bug.
+
 ### more
 
 - You can set the color of the output stream by modifying **main\_arena** as you want. I have preset some colors in **main\_arena**. And I will add this corresponding function(*-c*) in the near future.
