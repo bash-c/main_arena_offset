@@ -163,15 +163,17 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 - v0.6 -- fix a small bug.
 
 ### more
-
 - You can set the color of the output stream by modifying **main\_arena** as you want. I have preset some colors in **main\_arena**. And I will add this corresponding function(*-c*) in the near future.
 - Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Beta-v0.5*). But I'm not sure whether it works well on other libcs so welcome the issues.
 
 
 ### To-do list
-
 - [ ] print helpful information(**main_arena -h**)
 - [ ] check update(**main_arena -u**)
 - [ ] set color easily(**main_arena -c**)
 - [ ] more package manager system support(yum, pacman etc)
 - [ ] test more libcs
+
+### Make main\_arena\_offset better
+Any suggestion or feature request is welcome! Feel free to send a pull request.
+Please let me know if you find any libc that makes main\_arena\_offset fail to find right address. And, if you like this work, I'll be happy to be starred grimacing
