@@ -163,12 +163,13 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 - v0.6 -- fix a small bug.
 
 #### Alpha
-- v1.0 -- I give it up to add more optitions(To-do list) cause it's not important lol.
+- v1.0 -- I add more comment and give it up to add more optitions(To-do list) cause it's not important lol.
 
 ### more
-- Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Alpha-v0.5*). But I'm not sure whether it works well on other libcs so issues are welcome.
+- Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Alpha-v1.0*). But I'm not sure whether it works well on other libcs so issues are welcome.
 
 
+```
 ~~### To-do list~~
 
 ~~- [ ] print helpful information(**main_arena -h**)~~
@@ -180,6 +181,7 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 ~~- [ ] more package manager system support(yum, pacman etc)~~
 
 ~~- [ ] test more libcs~~
+```
 
 ### Make main\_arena\_offset better
 Any suggestion or feature request is welcome! Feel free to send a pull request.
