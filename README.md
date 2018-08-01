@@ -163,18 +163,22 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 - v0.6 -- fix a small bug.
 
 #### Alpha
-- v1.0 -- I give it up to add more optitions cause it's not important lol.
+- v1.0 -- I give it up to add more optitions(To-do list) cause it's not important lol.
 
 ### more
-- You can set the color of the output stream by modifying **main\_arena** as you want. I have preset some colors in **main\_arena**. And I will add this corresponding function(*-c*) in the near future.
-- Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Beta-v0.5*). But I'm not sure whether it works well on other libcs so welcome the issues.
+- Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Alpha-v0.5*). But I'm not sure whether it works well on other libcs so issues are welcome.
 
 
 ~~### To-do list~~
+
 ~~- [ ] print helpful information(**main_arena -h**)~~
+
 ~~- [ ] check update(**main_arena -u**)~~
+
 ~~- [ ] set color easily(**main_arena -c**)~~
+
 ~~- [ ] more package manager system support(yum, pacman etc)~~
+
 ~~- [ ] test more libcs~~
 
 ### Make main\_arena\_offset better
