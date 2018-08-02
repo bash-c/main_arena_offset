@@ -5,7 +5,7 @@
 <h3  id="1">install</h3>
 
 ```bash
-()$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh| sh
+(in a WRITABLE directory)$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh| sh
 ```
 
 ### usage
