@@ -54,7 +54,7 @@ function printInfo()
 			I think it's wired but it works out for all the libcs in libc_database. Please inform me if you find a 32-bit libc with a wrong result.
 	
 	for 64-bit so:
-		main_arena_offset - __malloc_hook_offset = (__malloc_hook_offset - __realloc_hook_offset) * 2
+		main_arena_offset - __malloc_hook_offset = (__realloc_hook_offset - __malloc_hook_offset) * 2
 getOffset
 function getOffset()
 {
