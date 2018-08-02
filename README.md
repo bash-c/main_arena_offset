@@ -5,7 +5,7 @@
 <h3  id="1">install</h3>
 
 ```bash
-$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh| sh
+()$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh| sh
 ```
 
 ### usage
@@ -164,6 +164,8 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 
 #### Alpha
 - v1.0 -- I add more comment and give it up to add more optitions(To-do list) cause it's not important lol.
+
+- v1.1 -- Fix a small bug during installation
 
 ### more
 - Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Alpha-v1.0*). But I'm not sure whether it works well on other libcs so issues are welcome.
