@@ -5,7 +5,7 @@
 <h3  id="1">install</h3>
 
 ```bash
-(in a WRITABLE directory)$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh| sh
+$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh| sh
 ```
 
 ### usage
@@ -15,6 +15,13 @@ $ main_arena your_libc
 
 ### example
 ```bash
+db [master] main_arena /lib/i386-linux-gnu/libc.so.6
+[+]__malloc_hook_offset : 0x1b3768
+[+]main_arena_offset : 0x1b3770
+db [master] main_arena /lib/x86_64-linux-gnu/libc.so.6
+[+]__malloc_hook_offset : 0x399af0
+[+]main_arena_offset : 0x399b00
+
 db [master] cat filter.sh
 #!/usr/bin/env bash
 # set -euxo pipefail
@@ -167,6 +174,8 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 
 - v1.1 -- Fix a small bug during installation
 
+- v1.2 -- Updata install.sh. Now the installation can be finished in seconds.
+
 ### more
 - Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Alpha-v1.0*). But I'm not sure whether it works well on other libcs so issues are welcome.
 
@@ -187,4 +196,4 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 
 ### Make main\_arena\_offset better
 Any suggestion or feature request is welcome! Feel free to send a pull request.
-Please let me know if you find any libc that makes main\_arena\_offset fail to find right address. And, if you like this work, I'll be happy to be starred 
+Please let me know if you find any libc that makes main\_arena\_offset fail to find right offset. And, if you like this work, I'll be happy to be [starred](https://github.com/0x01f/main_arena_offset/stargazers) :grimacing:
