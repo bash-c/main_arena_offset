@@ -5,7 +5,7 @@
 <h3  id="1">install</h3>
 
 ```bash
-$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh| sh
+$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh | sh
 ```
 
 ### usage
@@ -17,7 +17,7 @@ $ main_arena your_libc
 ```bash
 db [master] main_arena /lib/i386-linux-gnu/libc.so.6
 [+]__malloc_hook_offset : 0x1b3768
-[+]main_arena_offset : 0x1b3770
+[+]main_arena_offset : 0x1b3780
 db [master] main_arena /lib/x86_64-linux-gnu/libc.so.6
 [+]__malloc_hook_offset : 0x399af0
 [+]main_arena_offset : 0x399b00
