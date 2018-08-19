@@ -2,8 +2,8 @@
 # set -eux
 
 :<<DESCRIPTION
-	This is a simple script to get main_arena offset of a given libc.
-	Usage: main_arena your_libc
+	This is a simple shell script to get main_arena offset of a given libc.
+	Usage: $ main_arena your_libc
 	avaiable on <https://github.com/0x01f/main_arena_offset>
 DESCRIPTION
 
@@ -58,17 +58,24 @@ function printInfo()
 getOffset
 function getOffset()
 {
-	mallocHook=$(objdump -j .data -d $1|grep __malloc_hook@ |cut -d " " -f 1)
+	libc=$1
+	# deal with local libc(in case of symbolic link)
+	if [[ $(file $libc) =~ "symbolic link" ]]
+	then
+		libc=$(dirname $libc)"/"$(readlink $libc)
+	fi
+
+	mallocHook=$(objdump -j .data -d $libc|grep __malloc_hook@ |cut -d " " -f 1)
 	let mallocHook=16#$mallocHook
 	# 32-bit
-	if [[ $(file $1) =~ "32-bit" ]]
+	if [[ $(file $libc) =~ "32-bit" ]]
 	then
 		let mainArena=($mallocHook+0x18)
 		printInfo "$mallocHook" $mainArena
 	fi
 	
 	# 64-bit
-	reallocHook=$(objdump -j .data -d $1|grep __realloc_hook@ |cut -d " " -f 1)
+	reallocHook=$(objdump -j .data -d $libc|grep __realloc_hook@ |cut -d " " -f 1)
 	let reallocHook=16#$reallocHook
 	((offset=$mallocHook-$reallocHook))
 	
@@ -77,6 +84,6 @@ function getOffset()
 }
 
 :<<get_result
-	get result.
+	get result by calling getOffset.
 get_result
 getOffset $1

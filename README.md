@@ -176,6 +176,8 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 
 - v1.2 -- Updata install.sh. Now the installation can be finished in seconds.
 
+- v1.3 -- fix a bug about local libc with symbolic link. Thanks to [f0110vv3r](https://github.com/f0110vv3r)
+
 ### more
 - Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Alpha-v1.0*). But I'm not sure whether it works well on other libcs so issues are welcome.
 
