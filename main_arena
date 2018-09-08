@@ -65,7 +65,7 @@ function getOffset()
 		libc=$(dirname $libc)"/"$(readlink $libc)
 	fi
 
-	mallocHook=$(objdump -j .data -d $libc|grep __malloc_hook@ |cut -d " " -f 1)
+	mallocHook=$(objdump -j .data -d $libc|grep __malloc_hook |cut -d" " -f 1)
 	let mallocHook=16#$mallocHook
 	# 32-bit
 	if [[ $(file $libc) =~ "32-bit" ]]
@@ -75,7 +75,7 @@ function getOffset()
 	fi
 	
 	# 64-bit
-	reallocHook=$(objdump -j .data -d $libc|grep __realloc_hook@ |cut -d " " -f 1)
+	reallocHook=$(objdump -j .data -d $libc|grep __realloc_hook |cut -d" " -f 1)
 	let reallocHook=16#$reallocHook
 	((offset=$mallocHook-$reallocHook))
 	
