@@ -5,7 +5,7 @@
 <h3  id="1">install</h3>
 
 ```bash
-$ wget -q -O- https://raw.githubusercontent.com/0x01f/main_arena_offset/master/install.sh | sh
+$ wget -q -O- https://raw.githubusercontent.com/bash-c/main_arena_offset/master/install.sh | sh
 ```
 
 ### usage
@@ -157,19 +157,6 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 
 ### Releases
 
-#### Alpha
-
-- v0.1 -- I have tested libcs from [libc-database](https://github.com/niklasb/libc-database), but only 60% works. Version 0.1 must contains many many bugs and issues are welcome.
-- v0.2 -- I changed the method. Now it works on the equation **main_arena+0x10/0x18/0x20 == \__malloc\_hook**. It make a result for every libc from [libc-database](https://github.com/niklasb/libc-database). However, I haven't checked the result one by one, so a few results may be wrong and issues are welcome, too.
-- v0.3 -- The setup procedure has been simplified a lot and now you can install this tool using a simple  <a href="#1" target="_self">command</a>.
-- v0.4 -- It's able to print libc-version-information now.
-
-#### Beta
-- v0.5 -- Many changes. I modified the shell-script a lot and it work's better. Most importantly, I have tested all the libcs from [libc-databases](https://github.com/niklasb/libc-database) and all of them made it! So I decided to release Beta-v0.5.
-
-- v0.6 -- fix a small bug.
-
-#### Alpha
 - v1.0 -- I add more comment and give it up to add more optitions(To-do list) cause it's not important lol.
 
 - v1.1 -- Fix a small bug during installation
@@ -184,20 +171,6 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 - Though it works perfect on [libc-databases](https://github.com/niklasb/libc-database) now(*Alpha-v1.0*). But I'm not sure whether it works well on other libcs so issues are welcome.
 
 
-```
-~~### To-do list~~
-
-~~- [ ] print helpful information(**main_arena -h**)~~
-
-~~- [ ] check update(**main_arena -u**)~~
-
-~~- [ ] set color easily(**main_arena -c**)~~
-
-~~- [ ] more package manager system support(yum, pacman etc)~~
-
-~~- [ ] test more libcs~~
-```
-
-### Make main\_arena\_offset better
+### Make it better
 Any suggestion or feature request is welcome! Feel free to send a pull request.
 Please let me know if you find any libc that makes main\_arena\_offset fail to find right offset. And, if you like this work, I'll be happy to be [starred](https://github.com/0x01f/main_arena_offset/stargazers) :grimacing:
