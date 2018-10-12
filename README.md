@@ -173,4 +173,4 @@ libc6-amd64_2.27-3ubuntu1_i386.so
 
 ### Make it better
 Any suggestion or feature request is welcome! Feel free to send a pull request.
-Please let me know if you find any libc that makes main\_arena\_offset fail to find right offset. And, if you like this work, I'll be happy to be [starred](https://github.com/0x01f/main_arena_offset/stargazers) :grimacing:
+Please let me know if you find any libc that makes main\_arena\_offset fail to find right offset. And, if you like this work, I'll be happy to be [starred](https://github.com/bash-c/main_arena_offset/stargazers) :grimacing:

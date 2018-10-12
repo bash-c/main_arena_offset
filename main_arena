@@ -4,7 +4,7 @@
 :<<DESCRIPTION
 	This is a simple shell script to get main_arena offset of a given libc.
 	Usage: $ main_arena your_libc
-	avaiable on <https://github.com/0x01f/main_arena_offset>
+	avaiable on <https://github.com/bash-c/main_arena_offset>
 DESCRIPTION
 
 
