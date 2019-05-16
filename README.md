@@ -3,9 +3,10 @@
 > A simple shell script to get main\_arena offset of a given libc
 
 ### install
-Step1: download [main_arena](https://github.com/bash-c/main_arena_offset/blob/master/main_arena)
-Step2: then enjoy it!
-Optional: add this shell script to path if you want
+
+download [main_arena](https://github.com/bash-c/main_arena_offset/blob/master/main_arena) then enjoy it!
+
+> Optional: add this shell script to path if you want
 
 ### usage
 ```bash
