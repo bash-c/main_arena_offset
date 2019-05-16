@@ -1,4 +1,4 @@
-set -euxo pipefail
+set -eux
 cd ~
 wget -q https://raw.githubusercontent.com/bash-c/main_arena_offset/master/main_arena
 sudo mv main_arena /usr/local/bin/main_arena
